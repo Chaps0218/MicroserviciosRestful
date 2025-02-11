@@ -1,4 +1,4 @@
-package ec.edu.monster.LoginMicroservice;
+package ec.edu.monster;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
