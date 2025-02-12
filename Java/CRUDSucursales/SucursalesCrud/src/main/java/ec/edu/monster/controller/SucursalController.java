@@ -29,6 +29,7 @@ public class SucursalController {
         return ResponseEntity.ok(sucursalService.getAllSucursales());
     }
 
+
     @PutMapping("/{id}")
     public ResponseEntity<Sucursal> updateSucursal(@PathVariable String id, @RequestBody Sucursal sucursalDetails) {
         return ResponseEntity.ok(sucursalService.updateSucursal(id, sucursalDetails));
@@ -50,5 +51,11 @@ public class SucursalController {
     public ResponseEntity<List<Empleado>> getEmpleadosBySucursal(@PathVariable String sucursalId) {
         List<Empleado> empleados = sucursalService.getEmpleadosBySucursal(sucursalId);
         return ResponseEntity.ok(empleados);
+    }
+
+    @GetMapping("/{codigo}")
+    public ResponseEntity<Sucursal> getSucursalByCodigo(@PathVariable String codigo) {
+        Sucursal sucursal = sucursalService.getSucursalByCodigo(codigo);
+        return ResponseEntity.ok(sucursal);
     }
 }

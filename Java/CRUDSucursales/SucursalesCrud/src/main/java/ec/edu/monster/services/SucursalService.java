@@ -19,6 +19,11 @@ public class SucursalService {
         this.empleadoRepository = empleadoRepository;
     }
 
+    public Sucursal getSucursalByCodigo(String codigo) {
+        return sucursalRepository.findByCodigo(codigo)
+                .orElseThrow(() -> new RuntimeException("Sucursal no encontrada con código: " + codigo));
+    }
+
     @Transactional
     public Sucursal createSucursal(Sucursal sucursal) {
         sucursal.setCodigo(generateNextSucursalCodigo());
