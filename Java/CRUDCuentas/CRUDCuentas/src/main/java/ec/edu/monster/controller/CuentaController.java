@@ -1,5 +1,6 @@
 package ec.edu.monster.controller;
 
+import ec.edu.monster.dto.CuentaDTO;
 import ec.edu.monster.models.Cuenta;
 import ec.edu.monster.services.CuentaService;
 import org.springframework.http.ResponseEntity;
@@ -36,8 +37,13 @@ public class CuentaController {
                 : ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/cliente/{clienteId}")
+    @GetMapping("/cliente-ids/{clienteId}")
     public ResponseEntity<List<Cuenta>> getCuentasByCliente(@PathVariable String clienteId) {
         return ResponseEntity.ok(cuentaService.getCuentasByCliente(clienteId));
+    }
+
+    @GetMapping("/cliente/{clienteId}")
+    public ResponseEntity<List<CuentaDTO>> getCuentasByClienteFull(@PathVariable String clienteId) {
+        return ResponseEntity.ok(cuentaService.getCuentasByClienteFull(clienteId));
     }
 }
